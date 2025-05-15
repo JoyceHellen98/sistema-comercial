@@ -22,8 +22,3 @@ O banco de dados possui duas tabelas relacionais:
 - `quantidade` (INTEGER)
 - `data_pedido` (DATE)
 
-## ▶️ Como usar
-
-1. Clone o repositório:
-   ```bash
-   git clone https://github.com/seu-usuario/sistema-comercial.git
