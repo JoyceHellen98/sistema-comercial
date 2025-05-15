@@ -1,27 +1,28 @@
--- modelagem_banco.sql
-
--- Criação da tabela de produtos
-CREATE TABLE produtos (
-    id_produto INTEGER PRIMARY KEY,
-    nome TEXT NOT NULL,
-    preco DECIMAL(10, 2) NOT NULL
+-- tabela clientes
+CREATE TABLE clientes (
+    id INTEGER PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    data_cadastro DATE NOT NULL
 );
 
--- Criação da tabela de pedidos
+-- tabela pedidos
 CREATE TABLE pedidos (
-    id_pedido INTEGER PRIMARY KEY,
-    id_produto INTEGER NOT NULL,
-    quantidade INTEGER NOT NULL,
+    id INTEGER PRIMARY KEY,
+    cliente_id INTEGER NOT NULL,
     data_pedido DATE NOT NULL,
-    FOREIGN KEY (id_produto) REFERENCES produtos(id_produto)
+    valor_total DECIMAL(10, 2) NOT NULL,
+    FOREIGN KEY (cliente_id) REFERENCES clientes(id)
 );
 
--- Inserção de dados na tabela produtos
-INSERT INTO produtos (id_produto, nome, preco) VALUES (1, 'Livro A', 39.90);
-INSERT INTO produtos (id_produto, nome, preco) VALUES (2, 'Livro B', 49.90);
-INSERT INTO produtos (id_produto, nome, preco) VALUES (3, 'Livro C', 29.90);
+-- Inserindo dados em clientes
+INSERT INTO clientes (id, nome, email, data_cadastro) VALUES
+(1, 'João Silva', 'joao@gmail.com', '2025-05-01'),
+(2, 'Maria Oliveira', 'maria@gmail.com', '2025-05-05'),
+(3, 'Carlos Souza', 'carlos@gmail.com', '2025-05-10');
 
--- Inserção de dados na tabela pedidos
-INSERT INTO pedidos (id_pedido, id_produto, quantidade, data_pedido) VALUES (1, 1, 2, '2025-05-14');
-INSERT INTO pedidos (id_pedido, id_produto, quantidade, data_pedido) VALUES (2, 3, 1, '2025-05-13');
-INSERT INTO pedidos (id_pedido, id_produto, quantidade, data_pedido) VALUES (3, 2, 4, '2025-05-12');
+-- Inserindo dados em pedidos
+INSERT INTO pedidos (id, cliente_id, data_pedido, valor_total) VALUES
+(1, 1, '2025-05-11', 250.50),
+(2, 2, '2025-05-12', 100.00),
+(3, 1, '2025-05-13', 320.75);
