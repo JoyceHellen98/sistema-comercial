@@ -1,0 +1,29 @@
+# Sistema Comercial - Livraria
+
+Criei esse projeto para praticar modelagem de banco de dados e uso do Git.
+
+## 📌 Estrutura do Banco de Dados
+
+O banco de dados possui duas tabelas relacionais:
+
+- **produtos**: armazena os produtos disponíveis (ex: livros)
+- **pedidos**: armazena os pedidos feitos pelos clientes
+
+### 🗃️ Tabelas
+
+**Tabela: produtos**
+- `id_produto` (INTEGER, chave primária)
+- `nome` (TEXT)
+- `preco` (DECIMAL)
+
+**Tabela: pedidos**
+- `id_pedido` (INTEGER, chave primária)
+- `id_produto` (INTEGER, chave estrangeira)
+- `quantidade` (INTEGER)
+- `data_pedido` (DATE)
+
+## ▶️ Como usar
+
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/seu-usuario/sistema-comercial.git

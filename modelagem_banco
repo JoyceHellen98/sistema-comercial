@@ -1,0 +1,27 @@
+-- modelagem_banco.sql
+
+-- Criação da tabela de produtos
+CREATE TABLE produtos (
+    id_produto INTEGER PRIMARY KEY,
+    nome TEXT NOT NULL,
+    preco DECIMAL(10, 2) NOT NULL
+);
+
+-- Criação da tabela de pedidos
+CREATE TABLE pedidos (
+    id_pedido INTEGER PRIMARY KEY,
+    id_produto INTEGER NOT NULL,
+    quantidade INTEGER NOT NULL,
+    data_pedido DATE NOT NULL,
+    FOREIGN KEY (id_produto) REFERENCES produtos(id_produto)
+);
+
+-- Inserção de dados na tabela produtos
+INSERT INTO produtos (id_produto, nome, preco) VALUES (1, 'Livro A', 39.90);
+INSERT INTO produtos (id_produto, nome, preco) VALUES (2, 'Livro B', 49.90);
+INSERT INTO produtos (id_produto, nome, preco) VALUES (3, 'Livro C', 29.90);
+
+-- Inserção de dados na tabela pedidos
+INSERT INTO pedidos (id_pedido, id_produto, quantidade, data_pedido) VALUES (1, 1, 2, '2025-05-14');
+INSERT INTO pedidos (id_pedido, id_produto, quantidade, data_pedido) VALUES (2, 3, 1, '2025-05-13');
+INSERT INTO pedidos (id_pedido, id_produto, quantidade, data_pedido) VALUES (3, 2, 4, '2025-05-12');
